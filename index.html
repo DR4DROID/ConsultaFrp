@@ -2858,17 +2858,18 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script>
-        $(document).ready(function() {
-            const dataTable = $('#deviceTable').DataTable({
-    searching: false // Desativa a barra de pesquisa padrão
-});
-    
-            // Barra de pesquisa personalizada
-            document.getElementById('searchBox').addEventListener('input', function() {
-                const searchTerm = this.value;
-                dataTable.search(searchTerm).draw(); // Atualiza a tabela com o termo pesquisado
-            });
+         $(document).ready(function() {
+        // Inicializa o DataTables sem o campo de busca padrão
+        const dataTable = $('#deviceTable').DataTable({
+            dom: 't', // Remove o campo de busca, paginação e informações padrão
         });
+
+        // Configura a barra de pesquisa personalizada
+        document.getElementById('searchBox').addEventListener('input', function() {
+            const searchTerm = this.value; // Captura o valor digitado
+            dataTable.search(searchTerm).draw(); // Filtra a tabela com o termo
+        });
+    });
     </script>
     <footer style="text-align: center; margin-top: 20px; padding: 10px; background-color: #333; color: white;">
         <p>&copy; 2024 DRDROID. Todos os direitos reservados.</p>
