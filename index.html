@@ -2843,7 +2843,9 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            const dataTable = $('#deviceTable').DataTable();
+            const dataTable = $('#deviceTable').DataTable({
+    searching: false // Desativa a barra de pesquisa padrão
+});
     
             // Barra de pesquisa personalizada
             document.getElementById('searchBox').addEventListener('input', function() {
